@@ -1,0 +1,19 @@
+read_verilog half_adder.v
+read_verilog full_adder.v
+read_verilog ripple_adder_16.v
+read_verilog multiplier.v
+read_verilog accumulator.v
+read_verilog relu.v
+read_verilog mac_unit_pipelined.v
+read_verilog neuron_layer.v
+hierarchy -check -top neuron_layer
+proc
+opt
+memory
+opt
+techmap
+opt
+abc -g NAND
+opt_clean
+stat
+write_verilog synth_out.v
