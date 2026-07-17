@@ -1,7 +1,11 @@
 <div align="center">
-# Neural Network MAC Unit — Hardware Accelerator
+     
+# Neural Network MAC Unit
+
+
 
 ## Softwares Used
+
 
 | Software | Purpose |
 | :--- | :--- |
@@ -14,35 +18,16 @@
 ---
 </div>
 
-## What is this?
 This project builds the core math unit of a neural network neuron in hardware. A neuron simply multiplies inputs by weights, adds them up, and passes the result through an activation function (ReLU):
 
 `neuron_output = ReLU( (x1*w1) + (x2*w2) + ... )`
 
-![Handwritten Note](notes.jpg)
+<img width="864" height="1200" alt="WhatsApp Image 2026-07-17 at 5 28 20 PM" src="https://github.com/user-attachments/assets/3715b1dc-e438-40db-be5b-ebc75e16be8b" />
 
 This project implements that math using actual digital logic gates, built entirely from scratch without using any built-in `+` or `*` operators.
 
 
-```
-half_adder.v
-     └── used by full_adder.v
-              └── used by ripple_adder_16.v (16 copies, chained)
-                       ├── used by multiplier.v (8 copies, shift-and-add)
-                       └── used directly inside mac_unit.v / mac_unit_pipelined.v (accumulate step)
 
-multiplier.v ──┐
-               ├──> mac_unit.v            (single-cycle MAC)
-accumulator.v ─┘
-
-multiplier.v ──┐
-               ├──> mac_unit_pipelined.v  (two-cycle pipelined MAC)
-accumulator.v ─┘
-
-mac_unit_pipelined.v ──┐
-                        ├──> neuron_layer.v  (x4, running in parallel)
-relu.v ─────────────────┘
-```
 
 ## How to Simulate the Code
 To test the code and simulate the hardware behavior in your terminal, run the following commands (you must have Icarus Verilog installed):
@@ -55,7 +40,7 @@ vvp mac_sim
 ## How to Synthesize for Hardware (Windows)
 You can compile this code into real hardware logic using Yosys and the OSS CAD Suite. 
 
-![Yosys Terminal Output](terminal.jpg)
+<img width="580" height="752" alt="Design Hierarchy" src="https://github.com/user-attachments/assets/f4870a35-ac27-41e8-b5df-6b654be60c43" />
 
 I have provided a Windows Batch script that automatically sets up the environment and runs the entire pipeline (Synthesis, Placement, Routing, and Timing Analysis) for an iCE40 FPGA.
 
