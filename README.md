@@ -25,9 +25,10 @@ This project builds the core math unit of a neural network neuron in hardware. A
 This project implements that math using actual digital logic gates, built entirely from scratch without using any built-in `+` or `*` operators.
 
 
-<img width="864" height="1200" alt="WhatsApp Image 2026-07-17 at 5 28 20 PM" src="https://github.com/user-attachments/assets/3715b1dc-e438-40db-be5b-ebc75e16be8b" />
+<img width="500" height="780" alt="WhatsApp Image 2026-07-17 at 5 28 20 PM" src="https://github.com/user-attachments/assets/3715b1dc-e438-40db-be5b-ebc75e16be8b" />
 
 
+<img width="500" height="780" alt="diagram (1)" src="https://github.com/user-attachments/assets/7cca7eab-1777-4ecd-a59a-aab898e11e2f" />
 
 
 
